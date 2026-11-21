@@ -1,17 +1,39 @@
 [gd_scene format=3 uid="uid://cvsbe2c0hrfuu"]
 
+[ext_resource type="Script" uid="uid://cje0yikk81d4a" path="res://src/Player/Scripts/CameraSpring.gd" id="1_1ws4p"]
+[ext_resource type="Script" uid="uid://8gpt80ihwqku" path="res://src/Player/playerController.gd" id="1_rwoh2"]
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_37okk"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_fo3dt"]
 
-[node name="Player" type="AnimatableBody3D" unique_id=1943398813]
+[sub_resource type="BoxMesh" id="BoxMesh_37okk"]
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=709165447]
-transform = Transform3D(1, 0, 0, 0, 0.89885354, 0.43824914, 0, -0.43824914, 0.89885354, 0, 2.1726086, 5.2239075)
-current = true
+[node name="Player" type="AnimatableBody3D" unique_id=1943398813]
+script = ExtResource("1_rwoh2")
+sensitivity = 0.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1608289382]
 shape = SubResource("SphereShape3D_37okk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=828673457]
 mesh = SubResource("SphereMesh_fo3dt")
+
+[node name="CameraTarget" type="Node3D" parent="." unique_id=1009374455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2460592, 5.211581)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1472720994]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.3511746)
+mesh = SubResource("BoxMesh_37okk")
+
+[node name="CameraRoot" type="Node" parent="." unique_id=1713651074]
+
+[node name="Camera3D" type="Camera3D" parent="CameraRoot" unique_id=709165447 node_paths=PackedStringArray("targetPosition", "lookTarget")]
+transform = Transform3D(1, 0, 0, 0, 0.89885354, 0.43824914, 0, -0.43824914, 0.89885354, 0, 2.1726086, 5.2239075)
+current = true
+script = ExtResource("1_1ws4p")
+maxLagBehind = 3.0
+cameraMoveSpeed = 10.0
+cameraLookSpeed = 5.0
+targetPosition = NodePath("../../CameraTarget")
+lookTarget = NodePath("../..")

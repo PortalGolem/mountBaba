@@ -11,6 +11,8 @@ sky_material = SubResource("ProceduralSkyMaterial_k1yvp")
 background_mode = 2
 sky = SubResource("Sky_lgp2p")
 
+[sub_resource type="TorusMesh" id="TorusMesh_37okk"]
+
 [node name="MainScene" type="Node3D" unique_id=2022917827]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=304132379]
@@ -20,3 +22,7 @@ environment = SubResource("Environment_2m7an")
 transform = Transform3D(0.86595815, -0.36164102, 0.34544498, 0, 0.69072914, 0.72311366, -0.5001165, -0.6261862, 0.59814256, 0, 0, 0)
 
 [node name="PlayerSpawn" parent="." unique_id=2131250721 instance=ExtResource("1_5p7f2")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=420958865]
+transform = Transform3D(0.44674605, 0.89466083, 0, -0.7578499, 0.37842995, 0.53146434, 0.47548032, -0.23742959, 0.84708065, -3.9850464, 0, 0)
+mesh = SubResource("TorusMesh_37okk")
