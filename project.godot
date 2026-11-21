@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Mount Baba"
+run/main_scene="uid://drxqpqfbrhgu1"
 config/features=PackedStringArray("4.7")
 config/icon="res://icon.svg"
+
+[global_group]
+
+player_spawn=""
 
 [rendering]
 

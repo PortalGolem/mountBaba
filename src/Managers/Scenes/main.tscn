@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://drxqpqfbrhgu1"]
+
+[ext_resource type="Script" uid="uid://bnbisvm7tbekg" path="res://src/Managers/MainManager.gd" id="1_ahqf6"]
+[ext_resource type="PackedScene" uid="uid://b3t7nvdg2ttek" path="res://src/Levels/main_scene.tscn" id="1_rs36e"]
+[ext_resource type="PackedScene" uid="uid://cvsbe2c0hrfuu" path="res://src/Player/Player.tscn" id="3_0c4pl"]
+
+[node name="Main" type="Node" unique_id=665907872]
+script = ExtResource("1_ahqf6")
+initialLevel = ExtResource("1_rs36e")
+playerScene = ExtResource("3_0c4pl")
+
+[node name="Managers" type="Node" parent="." unique_id=159058258]
+
+[node name="Level" type="Node3D" parent="." unique_id=448441117]
+
+[node name="Player" type="Node3D" parent="." unique_id=2105155617]
+
+[node name="Entities" type="Node3D" parent="." unique_id=532905649]
+
+[node name="UI root" type="Control" parent="." unique_id=1099374827]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Debug" type="Control" parent="UI root" unique_id=851578234]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Pause" type="Control" parent="UI root" unique_id=135710036]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HUD" type="Control" parent="UI root" unique_id=632692511]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
