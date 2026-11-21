@@ -1,5 +1,17 @@
 [gd_scene format=3 uid="uid://cvsbe2c0hrfuu"]
 
-[node name="Player" type="Node3D" unique_id=643348812]
+[sub_resource type="SphereShape3D" id="SphereShape3D_37okk"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_fo3dt"]
+
+[node name="Player" type="AnimatableBody3D" unique_id=1943398813]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=709165447]
+transform = Transform3D(1, 0, 0, 0, 0.89885354, 0.43824914, 0, -0.43824914, 0.89885354, 0, 2.1726086, 5.2239075)
+current = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1608289382]
+shape = SubResource("SphereShape3D_37okk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=828673457]
+mesh = SubResource("SphereMesh_fo3dt")
