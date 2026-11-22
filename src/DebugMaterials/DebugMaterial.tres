@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bws6o6c6ma60p"]
+
+[ext_resource type="Texture2D" uid="uid://y3bngxjjpmer" path="res://Assets/Materials/DebugSquares.png" id="1_xp4qh"]
+
+[resource]
+albedo_color = Color(0.79454046, 0.6143442, 3.85046e-07, 1)
+albedo_texture = ExtResource("1_xp4qh")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 0
+point_size = 128.0

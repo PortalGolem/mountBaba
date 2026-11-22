@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b3t7nvdg2ttek"]
 
 [ext_resource type="PackedScene" uid="uid://wvmmqsjaj2lq" path="res://src/Objects/Scenes/player_spawn.tscn" id="1_5p7f2"]
+[ext_resource type="Material" uid="uid://bws6o6c6ma60p" path="res://src/DebugMaterials/DebugMaterial.tres" id="2_aqy4w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k1yvp"]
 
@@ -12,6 +13,9 @@ background_mode = 2
 sky = SubResource("Sky_lgp2p")
 
 [sub_resource type="TorusMesh" id="TorusMesh_37okk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4g7ok"]
+size = Vector3(14.796661, 0.8408203, 14.071289)
 
 [node name="MainScene" type="Node3D" unique_id=2022917827]
 
@@ -25,4 +29,10 @@ transform = Transform3D(0.86595815, -0.36164102, 0.34544498, 0, 0.69072914, 0.72
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=420958865]
 transform = Transform3D(0.44674605, 0.89466083, 0, -0.7578499, 0.37842995, 0.53146434, 0.47548032, -0.23742959, 0.84708065, -3.9850464, 0, 0)
+material_override = ExtResource("2_aqy4w")
 mesh = SubResource("TorusMesh_37okk")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1800673368]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14054346, -1.1281631, -0.2204175)
+material_override = ExtResource("2_aqy4w")
+mesh = SubResource("BoxMesh_4g7ok")

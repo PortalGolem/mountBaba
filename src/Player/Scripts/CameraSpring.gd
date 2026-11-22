@@ -3,6 +3,7 @@ extends Camera3D
 @export var maxLagBehind:float = 1.0
 @export var cameraMoveSpeed:float = 1.0
 @export var cameraLookSpeed:float = 1.0
+@export var cameraSmoothingCurve:Curve
 
 @export var targetPosition:Node3D
 @export var lookTarget:Node3D
@@ -18,7 +19,13 @@ func _process(delta: float) -> void:
 	basis = basis.slerp(targetBasis, cameraLookSpeed * delta)
 	
 	
-	global_position = global_position.move_toward(targetPosition.global_position, cameraMoveSpeed * delta)
+	#global_position = global_position.move_toward(targetPosition.global_position, 
+			#cameraMoveSpeed * delta * 
+			#cameraSmoothingCurve.sample(global_position.distance_to(targetPosition.global_position)/maxLagBehind))
 	
 	if (global_position.distance_squared_to(targetPosition.global_position) > maxLagBehind**2):
 		global_position = (global_position - targetPosition.global_position).normalized() * maxLagBehind + targetPosition.global_position
+	else:
+			global_position = global_position.move_toward(targetPosition.global_position, 
+			cameraMoveSpeed * delta * 
+			cameraSmoothingCurve.sample(global_position.distance_to(targetPosition.global_position)/maxLagBehind))
